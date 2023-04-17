@@ -1,17 +1,3 @@
-/* GET - Busca uma informação dentro do servidor
-   POST - Inserir uma informação no servidor 
-	 PUT - Alterar uma informação no servidor
-	 PATCH - Alterar uma informação especifica no servidor 
-	 DELETE - Deletar uma informação no servidor
-
-
-	 TIPOS DE PARAMETROS
-	 Route params => Identificar um recurso editar/deletar/buscar
-	 Query params => Paginação / Filtros
-	 Body params => Os objetos inserção/alteração (JSON)
-
-*/
-
 const express = require("express");
 
 const app = express();
