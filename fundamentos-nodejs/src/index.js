@@ -35,4 +35,15 @@ app.post("/account", (request, response) => {
 	return response.status(201);
 });
 
+//get utilizando Route params /:cpf
+app.get("/statement/:cpf", (request, response) => {
+	const { cpf } = request.params;
+
+  const customer = customers.find(customer => customer.cpf === cpf);
+  
+  if (customer) {
+    return response.status(200).json(customer.statement);
+  }
+});
+
 app.listen(5500);
