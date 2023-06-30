@@ -10,7 +10,7 @@
 - [X] Deveser possível buscar o extrato bancário do cliente por data
 - [X] Deveser possível atualizar dados da conta do cliente
 - [X] Deveser possível obter dados da conta do cliente
-- [] Deveser possível deletar uma conta
+- [X] Deveser possível deletar uma conta
 
 ---
 

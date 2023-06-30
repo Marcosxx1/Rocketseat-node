@@ -146,4 +146,6 @@ app.get("/account", verifyExistenceOfAccountCPF, (request, response) => {
 	return response.json(customer);
 });
 
+
+
 app.listen(5500);
