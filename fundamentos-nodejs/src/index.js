@@ -49,4 +49,37 @@ app.get("/statement/", verifyExistenceOfAccountCPF, (request, response) => {
 	return response.status(200).json(customer.statement);
 });
 
+//post = request.body
+app.post("/deposit", verifyExistenceOfAccountCPF, (request, response) => {
+  const { description, amount } = request.body;
+
+  const { customer } = request;
+
+  const statementOperation = {
+    description,
+    amount,
+    createdAt: new Date(),
+    type: "credit"
+  }
+
+  customer.statement.push(statementOperation);
+
+  return response.status(201).send();
+});
+
+
+app.get("/statement/date", verifyExistenceOfAccountCPF, (request, response) => {
+  const { customer } = request;
+  const { date } = request.query;
+
+  const dateFormat = new Date(date + " 00:00");
+
+  const statement = customer.statement.filter(
+    (statement) =>
+      statement.createdAt.toDateString() ===
+      new Date(dateFormat).toDateString())
+  
+  return response.json(statement);
+});
+
 app.listen(5500);
